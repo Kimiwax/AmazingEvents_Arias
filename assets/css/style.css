@@ -4,12 +4,15 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
+h1,h2,h3,h4,h5,h6{
+    color: white !important;
+}
 #logoAE{
     height: 2rem;
 }
 
 .navbar{
-    background-color: #16213E;
+    background-color: rgba(17, 25, 40, 0.64);
 }
 
 .header-img{
@@ -18,22 +21,31 @@ body{
     background-position: center
 }
 
+.display-1{
+    text-shadow: 5px 5px #533483;
+    font-weight: 700;
+}
 .imgCards{
     height: 150px;
     object-fit: cover;
+    border-radius: 16px;
 }
 
 .active{
     background-color: #E94560 !important;
 }
 
-
+.card{
+    background: rgba(255, 255, 255, 0.57);
+    border-radius: 16px;
+    border: none;
+}
 main{
     backdrop-filter: blur(15px);
 }
 
 footer{
-    background-color: #16213E;
+    background-color: rgba(17, 25, 40, 0.64);
 }
 
 .bi{
@@ -59,4 +71,9 @@ border-radius: 0;
 
 #basic-addon1{
     background: transparent;
+    border: none;
+}
+
+.text-bg-myK{
+    background-color: #533483;
 }
