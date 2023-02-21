@@ -1,8 +1,62 @@
-*{
 
+body{
+    background-image: url(/assets/img/backgroundMain.svg);
+    font-family: 'Roboto', sans-serif;
 }
 
 #logoAE{
     height: 2rem;
 }
 
+.navbar{
+    background-color: #16213E;
+}
+
+.header-img{
+    height: 200px;
+    object-fit: cover;
+    background-position: center
+}
+
+.imgCards{
+    height: 150px;
+    object-fit: cover;
+}
+
+.active{
+    background-color: #E94560 !important;
+}
+
+
+main{
+    backdrop-filter: blur(15px);
+}
+
+footer{
+    background-color: #16213E;
+}
+
+.bi{
+    color: white;
+}
+
+label{
+    color: white;
+}
+
+.containerForm{
+    /* From https://css.glass */
+background: rgba(15, 52, 96, 0.64);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(8.5px);
+-webkit-backdrop-filter: blur(8.5px);
+}
+
+.form-control{
+border-radius: 0;
+}
+
+#basic-addon1{
+    background: transparent;
+}
