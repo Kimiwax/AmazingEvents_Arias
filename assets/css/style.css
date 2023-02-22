@@ -84,6 +84,12 @@ border-radius: 0;
     border: none;
 }
 
+#inputSearch{
+    border: none;
+    background: rgba(15, 52, 96, 0.64);
+    backdrop-filter: blur(8.5px);
+}
+
 .text-bg-myK{
     background-color: #533483;
 }
