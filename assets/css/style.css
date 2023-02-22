@@ -31,6 +31,10 @@ h1,h2,h3,h4,h5,h6{
     border-radius: 16px;
 }
 
+.imgPast{
+    filter: grayscale();
+}
+
 .active{
     background-color: #E94560 !important;
 }
