@@ -81,3 +81,12 @@ border-radius: 0;
 .mainForm {
     background-color: #16213E;
 }
+
+.mainStats{
+    background-color: #0F3460;
+}
+
+.table-mystyle{
+    background-color: #16213E;
+    color: white;
+}
