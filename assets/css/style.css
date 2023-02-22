@@ -31,6 +31,12 @@ h1,h2,h3,h4,h5,h6{
     border-radius: 16px;
 }
 
+@media screen and (max-width:768px) {
+    .img-fluid{
+        width: 100%;
+        border-radius: 1rem;
+    }
+}
 .imgPast{
     filter: grayscale();
 }
