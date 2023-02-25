@@ -86,7 +86,6 @@ label{
 }
 
 .containerForm{
-    /* From https://css.glass */
 background: rgba(15, 52, 96, 0.64);
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -183,7 +182,6 @@ color: #4267B2;
 }
 
 
-
 #inputSearch:hover{
     box-shadow: 0 0 0 0.2rem rgba(200, 0, 255, 0.679);
 }
@@ -195,4 +193,22 @@ color: #4267B2;
 .card-horizontal {
     display: flex;
     flex: 1 1 auto;
+}
+
+#btn-submit{
+    transition: all .5s ease;
+    background-color: #865DFF;
+}
+
+#btn-submit:hover{
+    color: #865DFF;;
+    background-color: #fff;
+    font-weight: 700;
+}
+
+.btn-circle{
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    display: block;
 }
