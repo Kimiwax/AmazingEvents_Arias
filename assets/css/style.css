@@ -1,41 +1,46 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
 
-body{
+body {
     background-image: url(/assets/img/backgroundMain.svg);
     font-family: 'Roboto', sans-serif;
 }
 
-h1,h2,h3,h4,h5,h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: white !important;
 }
 
-#logoAE{
+#logoAE {
     height: 2rem;
 }
 
-.navbar{
+.navbar {
     background-color: rgb(0 0 0 / 64%);
 }
 
-.header-img{
+.header-img {
     height: 50vh;
     object-fit: cover;
     background-position: center
 }
 
-.carousel-caption{
+.carousel-caption {
     bottom: 8.25rem;
 }
 
-.input-search{
+.input-search {
     width: 20rem;
 }
 
-.display-1{
+.display-1 {
     text-shadow: 5px 5px #533483;
     font-weight: 700;
     background-image: url(/assets/img/fondoHeader.png);
@@ -44,71 +49,74 @@ h1,h2,h3,h4,h5,h6{
     background-size: cover;
     opacity: .9;
 }
-.imgCards{
+
+.imgCards {
     height: 150px;
     object-fit: cover;
     border-radius: 16px;
 }
 
 @media screen and (max-width:768px) {
-    .img-fluid{
+    .img-fluid {
         width: 100%;
         border-radius: 1rem;
     }
 }
-.imgPast{
+
+.imgPast {
     filter: grayscale();
 }
 
-.active{
+.active {
     background-color: #E94560 !important;
 }
 
-.card{
+.card {
     background: rgba(255, 255, 255, 0.57);
     border-radius: 16px;
     border: none;
 }
-main{
+
+main {
     backdrop-filter: blur(15px);
 }
 
-footer{
+footer {
     background-color: rgba(17, 25, 40, 0.64);
 }
 
-.bi{
+.bi {
     color: white;
 }
 
-label{
+label {
     color: white;
 }
 
-.containerForm{
-background: rgba(15, 52, 96, 0.64);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(8.5px);
--webkit-backdrop-filter: blur(8.5px);
+.containerForm {
+    background: rgba(15, 52, 96, 0.64);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
 }
 
-.form-control{
-border-radius: 0;
+.form-control {
+    border-radius: 0;
 }
 
-#basic-addon1{
+#basic-addon1 {
     background: transparent;
     border: none;
 }
 
-#inputSearch{
+#inputSearch {
     border: none;
     background: rgba(15, 52, 96, 0.64);
     backdrop-filter: blur(8.5px);
 }
 
-.text-bg-myK{
+.text-bg-myK {
     background-color: #533483;
 }
 
@@ -116,24 +124,24 @@ border-radius: 0;
     background-color: #16213E;
 }
 
-.mainStats{
+.mainStats {
     background-color: #0F3460;
 }
 
-.table-mystyle{
+.table-mystyle {
     background-color: #16213E;
     color: white;
 }
 
-.bodyPast{
+.bodyPast {
     background-image: url(/assets/img/backgroundPast.svg);
 }
 
-.bodyUpcoming{
+.bodyUpcoming {
     background-image: url(/assets/img/backgroundFuture.svg);
 }
 
-.item-no-select:after{
+.item-no-select:after {
     border-bottom: 3px solid #E94560;
     content: "";
     display: block;
@@ -145,23 +153,25 @@ border-radius: 0;
 .item-no-select:hover:after {
     transition: width 100ms ease-in-out 0s;
     width: 50%;
-  }
+}
 
-.bi-instagram:hover{
+.bi-instagram:hover {
     border-radius: 30px;
     color: #fff;
     background: #d6249f;
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
-    box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, .25);
 }
-.bi-facebook:hover{
-color: #4267B2;
+
+.bi-facebook:hover {
+    color: #4267B2;
 }
-.bi-whatsapp:hover{
+
+.bi-whatsapp:hover {
     color: #25D366;
 }
 
-.form-check-input{
+.form-check-input {
     background-color: transparent;
 }
 
@@ -182,11 +192,11 @@ color: #4267B2;
 }
 
 
-#inputSearch:hover{
+#inputSearch:hover {
     box-shadow: 0 0 0 0.2rem rgba(200, 0, 255, 0.679);
 }
 
-.bi-search:hover{
+.bi-search:hover {
     color: #865DFF;
 }
 
@@ -195,18 +205,19 @@ color: #4267B2;
     flex: 1 1 auto;
 }
 
-#btn-submit{
+#btn-submit {
     transition: all .5s ease;
     background-color: #865DFF;
 }
 
-#btn-submit:hover{
-    color: #865DFF;;
+#btn-submit:hover {
+    color: #865DFF;
+    ;
     background-color: #fff;
     font-weight: 700;
 }
 
-.btn-circle{
+.btn-circle {
     border-radius: 50%;
     width: 4rem;
     height: 4rem;
