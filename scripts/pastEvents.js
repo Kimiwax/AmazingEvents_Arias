@@ -1,8 +1,8 @@
 import data from "./amazing.js";
 
-pastEvents(data,data.currentDate);
+pastEvents(data, data.currentDate);
 
-function pastEvents(arr,date) {
+function pastEvents(arr, date) {
     const container = document.getElementById("containerPastCards");
     const fragment = document.createDocumentFragment();
 
@@ -13,19 +13,27 @@ function pastEvents(arr,date) {
             card.style.width = "25rem";
             card.innerHTML = `
             <div class="card shadow-sm h-100">
-                <img src="${arr.events[i].image}" class="card-img-top imgCards imgPast">
+                <img src="${
+                arr.events[i].image
+            }" class="card-img-top imgCards imgPast">
                 <div class="card-body d-flex justify-content-between flex-column">
-                    <h5 class="card-title text-center fw-bold text-bg-myK">${arr.events[i].name}</h5>
-                    <p class="card-text text-center">${arr.events[i].description}</p>
+                    <h5 class="card-title text-center fw-bold text-bg-myK">${
+                arr.events[i].name
+            }</h5>
+                    <p class="card-text text-center">${
+                arr.events[i].description
+            }</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                             <a href="/pages/details.html" class="btn btn-sm btn-outline-success btn-circle d-flex align-items-center">More
                                 Info</a>
                         </div>
-                        <small class="text-muted fw-bold">Price: $${arr.events[i].price}</small>
+                        <small class="text-muted fw-bold">Price: $${
+                arr.events[i].price
+            }</small>
                     </div>
                 </div>
-            </div>`
+            </div>`;
             fragment.appendChild(card);
         }
     }
