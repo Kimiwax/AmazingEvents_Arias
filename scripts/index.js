@@ -1,11 +1,9 @@
 import data from "./amazing.js";
 
-todasLasCards(data);
+AllCards(data);
 
-function todasLasCards(arr) {
+function AllCards(arr) {
     const container = document.getElementById("containerCards");
-    let cards = "";
-    const newArr = [];
     const fragment = document.createDocumentFragment();
 
     for (let i = 0; i < arr.events.length; i++) {
