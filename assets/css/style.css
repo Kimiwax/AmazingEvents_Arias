@@ -32,8 +32,24 @@ h6 {
     background-position: center
 }
 
+.header-img-contact{
+    height: 27.2vh !important;
+}
+
+.header-img-stats{
+    height: 27.2vh !important;
+}
+
 .carousel-caption {
     bottom: 8.25rem;
+}
+
+.carousel-caption-contact{
+    bottom: 3.25rem !important;
+}
+
+.carousel-caption-stats{
+    bottom: 3.25rem !important;
 }
 
 .input-search {
@@ -83,6 +99,12 @@ main {
 
 footer {
     background-color: rgba(17, 25, 40, 0.64);
+}
+
+@media screen and (max-width:1200px) {
+    footer {
+        height: 6rem;
+    }
 }
 
 .bi {
