@@ -1,19 +1,21 @@
 import data from "./amazing.js";
 
-pastEvents(data,data.currentDate);
+todasLasCards(data);
 
-function pastEvents(arr,date) {
-    const container = document.getElementById("containerPastCards");
+function todasLasCards(arr) {
+    const container = document.getElementById("containerCards");
+    let cards = "";
+    const newArr = [];
     const fragment = document.createDocumentFragment();
 
     for (let i = 0; i < arr.events.length; i++) {
-        if (arr.events[i].date < date) {
+        if (arr.events[i].date) {
             const card = document.createElement("div");
             card.classList.add("col");
             card.style.width = "25rem";
             card.innerHTML = `
             <div class="card shadow-sm h-100">
-                <img src="${arr.events[i].image}" class="card-img-top imgCards imgPast">
+                <img src="${arr.events[i].image}" class="card-img-top imgCards" alt="People in the cinema">
                 <div class="card-body d-flex justify-content-between flex-column">
                     <h5 class="card-title text-center fw-bold text-bg-myK">${arr.events[i].name}</h5>
                     <p class="card-text text-center">${arr.events[i].description}</p>
