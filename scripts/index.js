@@ -1,5 +1,11 @@
 import data from "./amazing.js";
+import { drawCards } from "./functions.js";
 
+let container = document.getElementById("containerCards");
+
+drawCards(data.events, container);
+
+/*
 AllCards(data);
 
 function AllCards(arr) {
@@ -30,4 +36,4 @@ function AllCards(arr) {
         }
     }
     container.appendChild(fragment);
-}
+}*/

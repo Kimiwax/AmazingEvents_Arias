@@ -94,7 +94,7 @@ h6 {
 }
 
 main {
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(100px);
 }
 
 footer {
