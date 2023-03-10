@@ -7,6 +7,7 @@ function drawCards(array, container) {
     card.style.width = "25rem";
     card.innerHTML = `
       <div class="card shadow-sm h-100">
+      <div class="date"><span class="day">01</span><span class="month">Dec</span><span class="year">2020</span></div>
           <img src="${element.image}" class="card-img-top imgCards" alt="People in the cinema">
           <div class="card-body d-flex justify-content-between flex-column">
               <h5 class="card-title text-center fw-bold text-bg-myK">${element.name}</h5>

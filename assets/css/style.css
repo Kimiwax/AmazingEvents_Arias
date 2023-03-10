@@ -252,3 +252,32 @@ label {
     height: 4rem;
     display: block;
 }
+
+.date {
+    background-color: #fff;
+    border-radius: 50%;
+    color: #700877;
+    font-size: 18px;
+    font-weight: 700;
+    min-height: 48px;
+    min-width: 48px;
+    padding: 10px 0;
+    position: absolute;
+    right: 7px;
+    text-align: center;
+    text-transform: uppercase;
+    top: 5px;
+}
+
+.date span {
+    display: block;
+    line-height: 14px;
+}
+
+.date .month {
+    font-size: 11px;
+}
+
+.date .year {
+    font-size: 8px;
+}
