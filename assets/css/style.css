@@ -32,11 +32,11 @@ h6 {
     background-position: center
 }
 
-.header-img-contact{
+.header-img-contact {
     height: 27.2vh !important;
 }
 
-.header-img-stats{
+.header-img-stats {
     height: 27.2vh !important;
 }
 
@@ -44,11 +44,11 @@ h6 {
     bottom: 8.25rem;
 }
 
-.carousel-caption-contact{
+.carousel-caption-contact {
     bottom: 3.25rem !important;
 }
 
-.carousel-caption-stats{
+.carousel-caption-stats {
     bottom: 3.25rem !important;
 }
 
@@ -91,6 +91,13 @@ h6 {
     background: rgba(255, 255, 255, 0.57);
     border-radius: 16px;
     border: none;
+    transition: .5s;
+
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
 }
 
 main {
