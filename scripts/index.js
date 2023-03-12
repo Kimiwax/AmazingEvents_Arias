@@ -1,10 +1,8 @@
 import data from "./amazing.js";
-import { drawCards } from "./functions.js";
-
+import { drawCards, pastEvents,  } from "./functions.js";
 let container = document.getElementById("containerCards");
-
+drawCards(pastEvents(data), container)
 drawCards(data.events, container);
-
 /*
 AllCards(data);
 
