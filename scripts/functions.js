@@ -7,9 +7,12 @@ function drawCards(array, container) {
     card.style.width = "25rem";
     card.innerHTML = `
       <div class="card shadow-sm h-100">
-      <div class="date"><span class="day">${element.date.slice(8, 10)}</span><span class="month">${whatMonthIs(
-        element.date.slice(5, 7)
-      )}</span><span class="year">${element.date.slice(0, 4)}</span></div>
+      <div class="date"><span class="day">${element.date.slice(
+        8,
+        10
+      )}</span><span class="month">${whatMonthIs(
+      element.date.slice(5, 7)
+    )}</span><span class="year">${element.date.slice(0, 4)}</span></div>
           <img src="${
             element.image
           }" class="card-img-top imgCards" alt="People in the cinema">
@@ -34,42 +37,48 @@ function drawCards(array, container) {
   container.appendChild(fragment);
 }
 
-function pastEvents(arrData, date){
-  let arrAux  = [];
-  arrAux = arrData.events.filter(dateEvent => dateEvent.date < date);
-  return arrAux
+function pastEvents(arrData, date) {
+  let arrAux = [];
+  arrAux = arrData.events.filter((dateEvent) => dateEvent.date < date);
+  return arrAux;
+}
+
+function upcomingEvents(arrData, date) {
+  let arrAux = [];
+  arrAux = arrData.events.filter((dateEvent) => dateEvent.date > date);
+  return arrAux;
 }
 
 ///Funcion que evalua la fecha del mes en numeros y devuelve el mes en palabras
 function whatMonthIs(month) {
   switch (month) {
     case "01":
-      return "January";
+      return "Jan";
     case "02":
-      return "February";
+      return "Feb";
     case "03":
-      return "March";
+      return "Mar";
     case "04":
-      return "April";
+      return "Apr";
     case "05":
       return "May";
     case "06":
-      return "June";
+      return "Jun";
     case "07":
-      return "July";
+      return "Jul";
     case "08":
-      return "August";
+      return "Aug";
     case "09":
-      return "September";
+      return "Sep";
     case "10":
-      return "October";
+      return "Oct";
     case "11":
-      return "November";
+      return "Nov";
     case "12":
-      return "December";
-      default:
-        return "Nulls"
+      return "Dec";
+    default:
+      return "Nulls";
   }
 }
 
-export { drawCards, pastEvents };
+export { drawCards, pastEvents, upcomingEvents };
