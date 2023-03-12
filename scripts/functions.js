@@ -4,6 +4,7 @@ function drawCards(array, container) {
   array.forEach((element) => {
     let card = document.createElement("div");
     card.classList.add("col");
+    card.classList.add(`${classMapper(element.category)}`)
     card.style.width = "25rem";
     card.innerHTML = `
       <div class="card shadow-sm h-100">
@@ -37,6 +38,52 @@ function drawCards(array, container) {
   container.appendChild(fragment);
 }
 
+function filterCards(arr){
+ arr.forEach(el => {
+  el.category.forEach(cards =>{
+    if(cards.hasAttribute("style")){
+      cards.setAttribute("style", "display:block");
+    }else{
+      cards.setAttribute("style", "display:none");
+    }
+    //cards.setAttribute("style", "display:none");
+  })
+    //console.log(el.category);
+  })
+
+}
+function test(arr){
+  let checkeds = arr.filter(el => el.checkbox.checked)
+  return checkeds
+}
+
+function test2(arr){
+let unchecked = arr.filter(el => el.checkbox.checked == false)
+return unchecked
+}
+
+
+function classMapper (dataCategory){
+  switch (dataCategory) {
+    case "Food Fair":
+      return "classFoodFair";
+    case "Museum":
+      return "classMuseum";
+    case "Costume Party":
+      return "classCostumeParty";
+    case "Music Concert":
+      return "classMusicConcert";
+    case "Race":
+      return "classRace";
+    case "Book Exchange":
+      return "classBookExchange";
+    case "Cinema":
+      return "classCinema";
+    default:
+      return "Nulls";
+  }
+}
+
 function pastEvents(arrData, date) {
   let arrAux = [];
   arrAux = arrData.events.filter((dateEvent) => dateEvent.date < date);
@@ -48,6 +95,7 @@ function upcomingEvents(arrData, date) {
   arrAux = arrData.events.filter((dateEvent) => dateEvent.date > date);
   return arrAux;
 }
+
 
 ///Funcion que evalua la fecha del mes en numeros y devuelve el mes en palabras
 function whatMonthIs(month) {
@@ -81,4 +129,4 @@ function whatMonthIs(month) {
   }
 }
 
-export { drawCards, pastEvents, upcomingEvents };
+export { drawCards, pastEvents, upcomingEvents, filterCards, test, test2 };
