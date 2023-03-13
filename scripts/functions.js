@@ -25,7 +25,7 @@ function drawCards(array, container) {
               <p class="card-text text-center">${element.description}</p>
               <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                      <a href="/pages/details.html" class="btn btn-sm btn-outline-success btn-circle d-flex align-items-center">More
+                      <a href="/pages/details.html?id=${element._id}" class="btn btn-sm btn-outline-success btn-circle d-flex align-items-center">More
                           Info</a>
                   </div>
                   <small class="text-muted fw-bold">Price: $${
