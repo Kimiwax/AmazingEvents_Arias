@@ -4,7 +4,7 @@ function drawCards(array, container) {
   array.forEach((element) => {
     let card = document.createElement("div");
     card.classList.add("col");
-    card.classList.add(`${classMapper(element.category)}`)
+    card.classList.add(`${classMapper(element.category)}`);
     card.style.width = "25rem";
     card.innerHTML = `
       <div class="card shadow-sm h-100">
@@ -38,32 +38,37 @@ function drawCards(array, container) {
   container.appendChild(fragment);
 }
 
-function filterCards(arr){
- arr.forEach(el => {
-  el.category.forEach(cards =>{
-    if(cards.hasAttribute("style")){
-      cards.setAttribute("style", "display:block");
-    }else{
-      cards.setAttribute("style", "display:none");
+function filterCards(arr) {
+  arr.forEach((arrEl) => {
+    if(arrEl.non !== undefined){
+      arrEl.non.forEach((el) => {
+        el.category.forEach((i) => {
+          i.setAttribute("style", "display:none; width:25rem;");
+        });
+      });
     }
-    //cards.setAttribute("style", "display:none");
-  })
-    //console.log(el.category);
-  })
+    else if(arrEl.si !== undefined){
+      arrEl.si.forEach((el) => {
+        el.category.forEach((i) => {
+          i.setAttribute("style", "display:block; width:25rem;");
+        });
+      });
+    }
+  });
 
 }
-function test(arr){
-  let checkeds = arr.filter(el => el.checkbox.checked)
-  return checkeds
+function test(arr) {
+  let checkeds = arr.filter((el) => el.checkbox.checked);
+  return checkeds;
 }
 
-function test2(arr){
-let unchecked = arr.filter(el => el.checkbox.checked == false)
-return unchecked
+function test2(arr) {
+  let checked = arr.filter((el) => el.checkbox.checked);
+  let unchecked = arr.filter((el) => el.checkbox.checked == false);
+  return [{ non: unchecked }, { si: checked }];
 }
 
-
-function classMapper (dataCategory){
+function classMapper(dataCategory) {
   switch (dataCategory) {
     case "Food Fair":
       return "classFoodFair";
@@ -95,7 +100,6 @@ function upcomingEvents(arrData, date) {
   arrAux = arrData.events.filter((dateEvent) => dateEvent.date > date);
   return arrAux;
 }
-
 
 ///Funcion que evalua la fecha del mes en numeros y devuelve el mes en palabras
 function whatMonthIs(month) {
