@@ -1,3 +1,4 @@
+// //Funcion que dibuja las cards en base a un array y un container
 function drawCards(array, container) {
   let fragment = document.createDocumentFragment();
 
@@ -37,17 +38,24 @@ function drawCards(array, container) {
   });
   container.appendChild(fragment);
 }
-
+///Funcion que verifica un array de checkbox si estan en true o false y en base a eso las habilita o deshabilita de la vista en la pagina web
 function filterCards(arr) {
   arr.forEach((arrEl) => {
-    if(arrEl.non !== undefined){
-      arrEl.non.forEach((el) => {
-        el.category.forEach((i) => {
-          i.setAttribute("style", "display:none; width:25rem;");
+    if (arrEl.non !== undefined) {
+      if (Object.keys(arrEl.non).length == 7) {
+        arrEl.non.forEach((el) => {
+          el.category.forEach((i) => {
+            i.setAttribute("style", "display:block; width:25rem;");
+          });
         });
-      });
-    }
-    else if(arrEl.si !== undefined){
+      } else {
+        arrEl.non.forEach((el) => {
+          el.category.forEach((i) => {
+            i.setAttribute("style", "display:none; width:25rem;");
+          });
+        });
+      }
+    } else if (arrEl.si !== undefined) {
       arrEl.si.forEach((el) => {
         el.category.forEach((i) => {
           i.setAttribute("style", "display:block; width:25rem;");
@@ -55,19 +63,21 @@ function filterCards(arr) {
       });
     }
   });
-
 }
-function test(arr) {
-  let checkeds = arr.filter((el) => el.checkbox.checked);
-  return checkeds;
-}
-
+// Funcion que crea un array de checkbox en base a si estan habilitados o deshabilitados
 function test2(arr) {
   let checked = arr.filter((el) => el.checkbox.checked);
   let unchecked = arr.filter((el) => el.checkbox.checked == false);
-  return [{ non: unchecked }, { si: checked }];
+  return [
+    {
+      non: unchecked,
+    },
+    {
+      si: checked,
+    },
+  ];
 }
-
+// Funcion que otorga clases a los containers de las cards en base a su categoria
 function classMapper(dataCategory) {
   switch (dataCategory) {
     case "Food Fair":
@@ -101,7 +111,7 @@ function upcomingEvents(arrData, date) {
   return arrAux;
 }
 
-///Funcion que evalua la fecha del mes en numeros y devuelve el mes en palabras
+// /Funcion que evalua la fecha del mes en numeros y devuelve el mes en palabras
 function whatMonthIs(month) {
   switch (month) {
     case "01":
@@ -133,4 +143,4 @@ function whatMonthIs(month) {
   }
 }
 
-export { drawCards, pastEvents, upcomingEvents, filterCards, test, test2 };
+export { drawCards, pastEvents, upcomingEvents, filterCards, test2 };
