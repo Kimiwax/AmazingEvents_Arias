@@ -282,3 +282,30 @@ label {
 .date .year {
     font-size: 11px;
 }
+
+/*Card Details*/
+
+
+.card-details {
+    box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
+    border-radius: 10px;
+    margin: 0 0 2rem 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.img-details{
+    clip-path: polygon(0 0, 100% 0%, 93% 100%, 0% 100%);
+}
+
+.container-text-details{
+    color: #18151f;
+}
+
+.card-text-p{
+    text-align: justify;
+}
+
+
+
+
