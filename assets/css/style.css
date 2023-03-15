@@ -67,9 +67,9 @@ h6 {
 }
 
 .imgCards {
-    height: 150px;
+    height: 250px;
     object-fit: cover;
-    border-radius: 16px;
+    border-radius: 16px 16px 0 0;
 }
 
 @media screen and (max-width:768px) {
@@ -298,6 +298,12 @@ label {
     clip-path: polygon(0 0, 100% 0%, 93% 100%, 0% 100%);
 }
 
+@media screen and (max-width:768px) {
+    .img-details {
+        clip-path:none;
+    }
+}
+
 .container-text-details{
     color: #18151f;
 }
@@ -306,6 +312,12 @@ label {
     text-align: justify;
 }
 
+.text-secondary{
+    color: #EEEEEE !important;
+}
 
+.display-6{
+    text-shadow: 5px 5px #533483;
+}
 
 

@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="shortcut icon" type="image/x-icon" href="/assets/img/faviconAEvents.png">
     <title>Amazing Events | Past Events</title>
@@ -84,39 +84,11 @@
         <section>
             <h5 class="h5 mt-4">Categories:</h5>
             <div class=" container-fluid">
-                <div
-                    class="form-check d-flex flex-xl-row flex-column justify-content-between flex-wrap align-items-center containerForm pe-4">
-                    <div class="form-check form-check-inline m-3">
-                        <input class="form-check-input" type="checkbox" id="foodFair" value="Food Fair">
-                        <label class="form-check-label" for="foodFair">Food Fair</label>
-                    </div>
-                    <div class="form-check form-check-inline m-3">
-                        <input class="form-check-input" type="checkbox" id="museum" value="Museum">
-                        <label class="form-check-label" for="museum">Museum</label>
-                    </div>
-                    <div class="form-check form-check-inline m-3">
-                        <input class="form-check-input" type="checkbox" id="costumeParty" value="Costume Party">
-                        <label class="form-check-label" for="costumeParty">Costume Party</label>
-                    </div>
-                    <div class="form-check form-check-inline m-3">
-                        <input class="form-check-input" type="checkbox" id="musicConcert" value="Music Concert">
-                        <label class="form-check-label" for="musicConcert">Music Concert</label>
-                    </div>
-                    <div class="form-check form-check-inline m-3">
-                        <input class="form-check-input" type="checkbox" id="race" value="Race">
-                        <label class="form-check-label" for="race">Race</label>
-                    </div>
-                    <div class="form-check form-check-inline m-3">
-                        <input class="form-check-input" type="checkbox" id="bookExchange" value="Book Exchange">
-                        <label class="form-check-label" for="bookExchange">Book Exchange</label>
-                    </div>
-                    <div class="form-check form-check-inline m-3">
-                        <input class="form-check-input" type="checkbox" id="cinema" value="Cinema">
-                        <label class="form-check-label" for="cinema">Cinema</label>
-                    </div>
-                    <div class="input-group input-search mb-3 mb-xl-0">
-                        <input type="text" class="form-control w-50 rounded-start-pill" placeholder="Enter your search"
-                            aria-label="inputSearch" aria-describedby="inputSearch">
+                <div class="form-check d-flex flex-xl-row flex-column justify-content-between flex-wrap align-items-center containerForm pe-4"
+                    id="containerChecks">
+                    <div class="input-group input-search mb-3 mb-xl-0" id="searchContainer">
+                        <input type="text" id="inputSearchs" class="form-control w-50 rounded-start-pill"
+                            placeholder="Enter your search" aria-label="inputSearch" aria-describedby="inputSearch">
                         <span class="input-group-text" id="inputSearch">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-search" viewBox="0 0 16 16">
