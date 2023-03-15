@@ -15,7 +15,7 @@ function drawCards(array, container) {
         array.forEach((element) => {
             let card = document.createElement("div");
             card.classList.add("col");
-            card.style.maxWidth = "25rem";
+            card.style.width = "25rem";
             card.style.height = "30rem";
             card.innerHTML = `<div class="card shadow-sm h-100">
             <div class="date">
