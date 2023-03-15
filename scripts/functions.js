@@ -7,7 +7,7 @@ function drawCards(array, container) {
         cards.classList.add("div-es");
         cards.style.width = "46rem";
         cards.style.height = "20rem";
-        cards.innerHTML = `<h3 class="display-6 h2 text-center text-secondary m-5 fw-bold">El elemento buscado no existe</h3>`;
+        cards.innerHTML = `<h3 class="display-6 h2 text-center text-secondary m-5 fw-bold text-not">The searched element does not exist</h3>`;
         fragment.appendChild(cards);
         container.appendChild(fragment);
     } else {

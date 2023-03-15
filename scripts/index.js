@@ -14,9 +14,9 @@ let input = document.getElementById("inputSearchs")
 
 let divChecks = document.querySelector(".form-check");
 divChecks.addEventListener("change", (e) => {
-    let primerFiltro = filterByName(data.events, input.value);
-    let segundoFiltro = filterCards(primerFiltro, checkBoxsOptions);
-    drawCards(segundoFiltro, container);
+    let firstFilter = filterByName(data.events, input.value);
+    let secondFilter = filterCards(firstFilter, checkBoxsOptions);
+    drawCards(secondFilter, container);
 });
 
 ///Captura del inputSearch 
