@@ -5,7 +5,6 @@ let container = document.getElementById("containerCards");
 drawCards(data.events, container);
 
 let containerChks = document.getElementById("containerChecks")
-
 drawCheckboxs(filterByCategories(data.events), containerChks)
 let checkBoxsOptions = document.querySelectorAll('input[class="form-check-input"]')
 let search = document.getElementById("searchContainer")

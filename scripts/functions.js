@@ -15,7 +15,7 @@ function drawCards(array, container) {
         array.forEach((element) => {
             let card = document.createElement("div");
             card.classList.add("col");
-            card.style.width = "25rem";
+            card.style.maxWidth = "25rem";
             card.style.height = "30rem";
             card.innerHTML = `<div class="card shadow-sm h-100">
             <div class="date">
@@ -58,14 +58,14 @@ function drawCardDetails(array, container) {
             <p class="card-text card-text-p text-center mb-4">${element.description}</p>
             <div class="container">
                 <div class="row gx-2 ">
-                    <div class="col-md-6 col-12 d-flex flex-column align-items-center">
-                        <p class="card-text fw-bold"><small class="text-danger">Category: ${element.category}</small></p>
-                        <p class="card-text fw-bold"><small class="text-success">Place: ${element.place}</small></p>
+                    <div class="col-md-6 col-12 d-flex flex-column align-items-center container-text-details">
+                        <p class="card-text fw-bold"><small class="text-body">Category: ${element.category}</small></p>
+                        <p class="card-text fw-bold"><small class="text-body">Place: ${element.place}</small></p>
                     </div>
-                    <div class="col-md-6 col-12 d-flex flex-column align-items-center">
-                        <p class="card-text fw-bold"><small class="text-warning">Capacity: ${element.capacity}</small>
+                    <div class="col-md-6 col-12 d-flex flex-column align-items-center container-text-details">
+                        <p class="card-text fw-bold"><small class="text-body">Capacity: ${element.capacity}</small>
                         </p>
-                        <p class="card-text fw-bold"><small class="text-dark">Estimate: ${element.estimate === undefined ?
+                        <p class="card-text fw-bold"><small class="text-body">Estimate: ${element.estimate === undefined ?
                                 element.assistance : element.estimate}</small></p>
                     </div>
                 </div>

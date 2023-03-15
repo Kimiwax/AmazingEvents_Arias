@@ -53,7 +53,8 @@ h6 {
 }
 
 .input-search {
-    width: 20rem;
+    max-width: 18rem;
+    padding: 1rem;
 }
 
 .display-1 {
@@ -92,6 +93,7 @@ h6 {
     border-radius: 16px;
     border: none;
     transition: .5s;
+    padding: 10px;
 
 }
 
@@ -123,6 +125,7 @@ label {
 }
 
 .containerForm {
+    max-width: 85rem;
     background: rgba(15, 52, 96, 0.64);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -140,7 +143,7 @@ label {
 }
 
 #inputSearch {
-    border: none;
+    border: 1px solid white;
     background: rgba(15, 52, 96, 0.64);
     backdrop-filter: blur(8.5px);
 }
@@ -294,30 +297,85 @@ label {
     position: relative;
 }
 
-.img-details{
+.img-details {
     clip-path: polygon(0 0, 100% 0%, 93% 100%, 0% 100%);
 }
 
 @media screen and (max-width:768px) {
     .img-details {
-        clip-path:none;
+        clip-path: none;
     }
 }
 
-.container-text-details{
+.container-text-details {
     color: #18151f;
 }
 
-.card-text-p{
+.card-text-p {
     text-align: justify;
 }
 
-.text-secondary{
+.text-secondary {
     color: #EEEEEE !important;
 }
 
-.display-6{
+.display-6 {
     text-shadow: 5px 5px #533483;
 }
 
 
+.btn-outline-success {
+    --bs-btn-color: #372B5A;
+    --bs-btn-border-color: #372B5A;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #372B5A;
+    --bs-btn-hover-border-color: #372B5A;
+    --bs-btn-focus-shadow-rgb: 25, 135, 84;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #372B5A;
+    --bs-btn-active-border-color: #372B5A;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #372B5A;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #372B5A;
+    --bs-gradient: none;
+
+}
+
+a.nav-link.active {
+    background-color: transparent !important;
+    border: 3px solid transparent;
+    border-image: linear-gradient(to right, #E94560, #3D2958) 1;
+    border-image-slice: 1;
+}
+
+a.nav-link.active:hover {
+    background: rgb(233,69,96);
+    background: linear-gradient(90deg, rgba(233,69,96,1) 0%, rgba(55,42,87,0.5186449579831933) 50%, rgba(2,0,36,1) 100%);
+}
+
+.text-body{
+    padding: 0.5rem;
+    backdrop-filter: blur(3px) saturate(109%);
+    background-color: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    font-size: 1rem;
+    
+}
+
+p{
+    margin-top: .5rem;
+}
+
+.text-success-emphasis{
+    color: #539165!important;
+    padding: 0.5rem;
+    backdrop-filter: blur(3px) saturate(109%);
+    background-color: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    font-size: 1.5rem;
+}
+
+.container-text-details{
+    margin-bottom: 1rem;
+}
