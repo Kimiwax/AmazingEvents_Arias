@@ -211,6 +211,13 @@ async function getDataJSON() {
   console.log(data);
   return data;
 }
+eventsPercentage()
+function eventsPercentage (arr){
+
+  const mayorPor = arr.filter(e => (e.assistance / e.capacity * 100).toFixed(1) == 100 )
+console.log(mayorPor);
+}
+console.log((42750/50000 *  100).toFixed(1));
 
 //await getDataJSON();
 export {
