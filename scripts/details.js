@@ -1,13 +1,12 @@
-import data from "./amazing.js";
-import {drawCardDetails} from "./functions.js";
-
+import {drawCardDetails,getDataJSON} from "./functions.js";
+const dataJSON = await getDataJSON();
 const queryString = location.search;
 
 const params = new URLSearchParams(queryString);
 
 const id = params.get("id");
 
-let arrAux = data.events;
+let arrAux = dataJSON.events;
 
 const cardEvent = arrAux.find((el) => el._id == id);
 
