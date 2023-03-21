@@ -159,7 +159,6 @@ function drawRowTable(arr, container) {
 function drawRowTable2(arr, container){
     let fragment = document.createDocumentFragment();
     arr.forEach(element => {
-        console.log(element);
         let cont = document.createElement("tr");
         cont.classList = "table-secondary";
         cont.innerHTML = `  <td class=" col-4 text-center">${element.category}</td>
@@ -309,7 +308,7 @@ function highestPercentage(arr) {
     let objReturn = {};
 
     arr.forEach(arrEl => {
-        const currentPercentage = arrEl.percentage;
+        let currentPercentage = parseFloat(arrEl.percentage);
         if (currentPercentage > highePercentage) {
             highePercentage = currentPercentage;
             objReturn = arrEl;
@@ -323,8 +322,9 @@ function lowestPercentage(arr, highPercentage) {
     let objReturn = {};
 
     arr.forEach(arrEl => {
-        const currentPercentage = arrEl.percentage;
-        if (currentPercentage < lowePercentage && arrEl.assistance) {
+        const currentPercentage = parseFloat(arrEl.percentage);
+        console.log(currentPercentage);
+        if (currentPercentage < lowePercentage) {
             lowePercentage = currentPercentage;
             objReturn = arrEl;
         }

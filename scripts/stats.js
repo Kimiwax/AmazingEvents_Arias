@@ -2,15 +2,10 @@ import {getDataJSON,filterByCategories, eventsPercentage, upcomingEventsStats,pa
 const dataJSON = await getDataJSON();
 const dataJSONEvents = dataJSON.events;
 const newDataJSON = eventsPercentage(dataJSONEvents);
-//console.log(eventsPercentage(dataJSONEvents));
-//console.log(upcomingEventsStats(filterByCategories(dataJSONEvents), dataJSONEvents));
-//console.log(highestPercentage(newDataJSON));
-//console.log(lowestPercentage(newDataJSON,highestPercentage(newDataJSON)));
-//console.log(eventLargerCapacity(newDataJSON));
-//console.log(upcomingEvents(dataJSON, dataJSON.currentDate));
 
 const prueba = test(highestPercentage(newDataJSON),lowestPercentage(newDataJSON,highestPercentage(newDataJSON)),eventLargerCapacity(newDataJSON) );
 //console.log(prueba);
+//console.log(highestPercentage(newDataJSON));
 const containerTable = document.getElementById("eventsStatistics");
 drawRowTable(prueba,containerTable )
 //console.log(containerTable);
@@ -24,5 +19,5 @@ let arrPastEvents = upcomingEventsStats(pastEvents(dataJSON, dataJSON.currentDat
 const containerPastTable = document.getElementById("pastEvents")
 drawRowTable2(arrPastEvents, containerPastTable)
 
-console.log(arrUpcomingEvents);
+//console.log(arrUpcomingEvents);
 //upcomingEventsDraw(arrUpcomingEvents)
