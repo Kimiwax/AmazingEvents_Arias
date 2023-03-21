@@ -147,7 +147,7 @@ function drawRowTable(arr, container) {
     let fragment = document.createDocumentFragment();
     arr.forEach(element => {
         let cont = document.createElement("td");
-        cont.classList = "col-4 text-muted";
+        cont.classList = "col-4 text-muted text-center";
         cont.innerHTML = `${
             element.name
         }`;
@@ -162,9 +162,9 @@ function drawRowTable2(arr, container){
         console.log(element);
         let cont = document.createElement("tr");
         cont.classList = "table-secondary";
-        cont.innerHTML = `  <td class=" col-4 ">${element.category}</td>
-                            <td class="col-4">$${element.revenues}</td>
-                            <td class="col-4">${element.percentageAttendace}</td>`;
+        cont.innerHTML = `  <td class=" col-4 text-center">${element.category}</td>
+                            <td class="col-4 text-center">$${element.revenues.toLocaleString()}</td>
+                            <td class="col-4 text-center">${element.percentageAttendace}%</td>`;
         fragment.appendChild(cont);
     });
     container.appendChild(fragment);
@@ -267,8 +267,8 @@ function upcomingEventsStats(arrData, arrCat) {
     arrAux.forEach(arrEl => {
         arrEl.events.forEach(arrElemento => {
             capacity += arrElemento.capacity;
-            attendance += arrElemento.assistance || arrElemento.estimate;
-            revenuesEl += arrElemento.assistance || arrElemento.estimate * arrElemento.price;
+            attendance += arrElemento.assistance ? arrElemento.assistance: arrElemento.estimate;
+            revenuesEl += (arrElemento.assistance ? arrElemento.assistance: arrElemento.estimate) * arrElemento.price;
         })
         arrFinal.push({
             category: arrEl.category,
