@@ -1,6 +1,15 @@
-import {drawCards, filterByCategories, drawCheckboxs,filterCards, filterByName,getDataJSON} from "./functions.js";
+import {
+    drawCards,
+    filterByCategories,
+    drawCheckboxs,
+    filterCards,
+    filterByName,
+    getDataJSON
+} from "./functions.js";
+
 let dataJSON = await getDataJSON();
 let dataJSONEvents = dataJSON.events;
+
 // Captura del container para dibujar las cards
 let container = document.getElementById("containerCards");
 drawCards(dataJSONEvents, container);
@@ -19,11 +28,9 @@ divChecks.addEventListener("change", (e) => {
     drawCards(secondFilter, container);
 });
 
-///Captura del inputSearch 
-
-search.addEventListener("input",(e)=>{
+// /Captura del inputSearch
+search.addEventListener("input", (e) => {
     let firstFilter = filterByName(dataJSON.events, input.value);
     let secondFilter = filterCards(firstFilter, checkBoxsOptions);
     drawCards(secondFilter, container);
 })
-

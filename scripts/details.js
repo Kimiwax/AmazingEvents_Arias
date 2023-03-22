@@ -1,18 +1,10 @@
-import {drawCardDetails,getDataJSON} from "./functions.js";
+import {drawCardDetails, getDataJSON} from "./functions.js";
 const dataJSON = await getDataJSON();
+
 const queryString = location.search;
-
 const params = new URLSearchParams(queryString);
-
 const id = params.get("id");
-
 let arrAux = dataJSON.events;
-
 const cardEvent = arrAux.find((el) => el._id == id);
-
-console.log(cardEvent);
-
 let containerCard = document.getElementById("containerCard");
-
 drawCardDetails(cardEvent, containerCard);
-

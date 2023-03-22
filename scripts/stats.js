@@ -1,23 +1,29 @@
-import {getDataJSON,filterByCategories, eventsPercentage, upcomingEventsStats,pastEvents, highestPercentage, lowestPercentage, eventLargerCapacity, upcomingEvents, test, drawRowTable, drawRowTable2} from "./functions.js";
+import {
+    getDataJSON,
+    filterByCategories,
+    eventsAddPercentage,
+    eventsStats,
+    pastEvents,
+    upcomingEvents,
+    arrFirstTable,
+    drawRowFirstTable,
+    drawRowsTables
+} from "./functions.js";
 const dataJSON = await getDataJSON();
 const dataJSONEvents = dataJSON.events;
-const newDataJSON = eventsPercentage(dataJSONEvents);
 
-const prueba = test(highestPercentage(newDataJSON),lowestPercentage(newDataJSON,highestPercentage(newDataJSON)),eventLargerCapacity(newDataJSON) );
-//console.log(prueba);
-//console.log(highestPercentage(newDataJSON));
+// Array de objetos con nueva propiedad 'percentage'
+const newDataJSON = eventsAddPercentage(dataJSONEvents);
+// Se obtiene el container de la tabla y se dibuja la fila con sus correspondientes columnas
 const containerTable = document.getElementById("eventsStatistics");
-drawRowTable(prueba,containerTable )
-//console.log(containerTable);
+drawRowFirstTable(arrFirstTable(newDataJSON), containerTable);
 
-let arrUpcomingEvents = upcomingEventsStats(upcomingEvents(dataJSON, dataJSON.currentDate), filterByCategories(newDataJSON));
+// Array que contiene los eventos futuros filtrados por categoria y agrupados segun esa categoria, se obtiene el container de la tabla y se dibujan las filas en la segunda tabla
+let arrUpcomingEvents = eventsStats(upcomingEvents(dataJSON, dataJSON.currentDate), filterByCategories(newDataJSON));
+const containerUpcomingTable = document.getElementById("upcomingEvents");
+drawRowsTables(arrUpcomingEvents, containerUpcomingTable);
 
-const containerUpcomingTable = document.getElementById("upcomingEvents")
-drawRowTable2(arrUpcomingEvents, containerUpcomingTable)
-
-let arrPastEvents = upcomingEventsStats(pastEvents(dataJSON, dataJSON.currentDate), filterByCategories(newDataJSON));
-const containerPastTable = document.getElementById("pastEvents")
-drawRowTable2(arrPastEvents, containerPastTable)
-
-//console.log(arrUpcomingEvents);
-//upcomingEventsDraw(arrUpcomingEvents)
+// Array que contiene los eventos pasados filtrados por categoria y agrupados segun esa categoria, se obtiene el container de la tabla y se dibujan las filas en la tercer tabla
+let arrPastEvents = eventsStats(pastEvents(dataJSON, dataJSON.currentDate), filterByCategories(newDataJSON));
+const containerPastTable = document.getElementById("pastEvents");
+drawRowsTables(arrPastEvents, containerPastTable);

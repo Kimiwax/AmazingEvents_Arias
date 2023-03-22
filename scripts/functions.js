@@ -126,7 +126,6 @@ function filterByCategories(arrData) {
     return result;
 }
 
-
 function drawCheckboxs(arrData, container) {
     let fragment = document.createDocumentFragment();
     arrData.forEach((element) => {
@@ -142,28 +141,34 @@ function drawCheckboxs(arrData, container) {
     });
     container.appendChild(fragment);
 }
-
-function drawRowTable(arr, container) {
+///Funcion que dibuja la primer tabla
+function drawRowFirstTable(arr, container) {
     let fragment = document.createDocumentFragment();
     arr.forEach(element => {
         let cont = document.createElement("td");
         cont.classList = "col-4 text-muted text-center";
         cont.innerHTML = `${
-            element.name
+            element
         }`;
         fragment.appendChild(cont);
     });
     container.appendChild(fragment);
 }
-
-function drawRowTable2(arr, container){
+//Funcion que dibuja la tabla 2 y 3
+function drawRowsTables(arr, container) {
     let fragment = document.createDocumentFragment();
     arr.forEach(element => {
         let cont = document.createElement("tr");
         cont.classList = "table-secondary";
-        cont.innerHTML = `  <td class=" col-4 text-center">${element.category}</td>
-                            <td class="col-4 text-center">$${element.revenues.toLocaleString()}</td>
-                            <td class="col-4 text-center">${element.percentageAttendace}%</td>`;
+        cont.innerHTML = `  <td class=" col-4 text-center">${
+            element.category
+        }</td>
+                            <td class="col-4 text-center">$${
+            element.revenues.toLocaleString()
+        }</td>
+                            <td class="col-4 text-center">${
+            element.percentageAttendace
+        }%</td>`;
         fragment.appendChild(cont);
     });
     container.appendChild(fragment);
@@ -190,7 +195,7 @@ function filterByName(arrData, letterWord) {
 
 function pastEvents(arrData, date) {
     let arrAux = [];
-    arrAux = arrData.events.filter((dateEvent) => dateEvent.date < date);
+    arrAux = arrData.events.filter((dateEvent) => dateEvent.date<date);
     return arrAux;
 }
 
@@ -231,45 +236,42 @@ function whatMonthIs(month) {
             return "Nulls";
     }
 }
-
+// Funcion que obtiene la informacion, la parsea y devuelve el objeto
 async function getDataJSON() {
     let data = await fetch("/data/amazing.json").then((response) => response.json()).then((data) => {
         return data;
-    });
-    console.log(data);
+    }).catch(err => console.log(err));
     return data;
 }
-
-function eventsPercentage(arr) {
-    const newArr = arr.map(e => {
-        e.percentage = e.hasOwnProperty("assistance") ? (e.assistance / e.capacity * 100).toFixed(1) : (e.estimate / e.capacity * 100).toFixed(1)
-        return e
+// Funcion que recibe un array de objetos y le agrega la propiedad porcentaje
+function eventsAddPercentage(arrData) {
+    const newArr = arrData.map(elementArr => {
+        elementArr.percentage = elementArr.hasOwnProperty("assistance") ? (elementArr.assistance / elementArr.capacity * 100).toFixed(1) : (elementArr.estimate / elementArr.capacity * 100).toFixed(1)
+        return elementArr
     })
-
     return newArr
 }
-
-function upcomingEventsStats(arrData, arrCat) {
+// Funcion que recibe un array de informacion y un array de categorias, este devuelve un array con objetos agrupados segun categoria y luego los itera en un nuevo array que devuelve un array de objetos con su categoria, las ganancias referidas a dicha categoria y el porcentaje de asistencia
+function eventsStats(arrData, arrCat) {
     const arrAux = [];
-    const arrFinal = [];
+    const arrExport = [];
     let capacity = 0;
     let attendance = 0;
     let revenuesEl = 0;
 
-    arrCat.forEach(e => {
-        const result = arrData.filter(el => el.category == e)
+    arrCat.forEach(elCategory => {
+        const result = arrData.filter(elArrData => elArrData.category == elCategory)
         if (result.length > 0) {
-            arrAux.push({category: e, events: result})
+            arrAux.push({category: elCategory, events: result})
         }
     })
-
     arrAux.forEach(arrEl => {
-        arrEl.events.forEach(arrElemento => {
-            capacity += arrElemento.capacity;
-            attendance += arrElemento.assistance ? arrElemento.assistance: arrElemento.estimate;
-            revenuesEl += (arrElemento.assistance ? arrElemento.assistance: arrElemento.estimate) * arrElemento.price;
+        arrEl.events.forEach(arrEventElement => {
+            capacity += arrEventElement.capacity;
+            attendance += arrEventElement.assistance ? arrEventElement.assistance : arrEventElement.estimate;
+            revenuesEl += (arrEventElement.assistance ? arrEventElement.assistance : arrEventElement.estimate) * arrEventElement.price;
         })
-        arrFinal.push({
+        arrExport.push({
             category: arrEl.category,
             revenues: revenuesEl,
             percentageAttendace: (
@@ -279,74 +281,19 @@ function upcomingEventsStats(arrData, arrCat) {
         capacity = 0;
         attendance = 0;
         revenuesEl = 0;
-        arrFinal.sort((a, b) => {
+        arrExport.sort((a, b) => {
             return b.percentageAttendace - a.percentageAttendace
         })
     })
-
-
-    return arrFinal
+    return arrExport
 }
-/*
-function upcomingEventsDraw (arrData){
-    let arrayAux = [];
-    arrData.forEach(elementObj => {
-        elementObj.map(e =>{
-            return {category: e.category}
-        })
-    });
+// funcion que devuelve un array con los 3 nombres de los eventos ya filtrados para la primer tabla
+function arrFirstTable(arr) {
+    let eventHighestAttendance = arr.sort((a, b) => b.percentage - a.percentage)[0].name;
+    let eventLowestAttendance = arr.sort((a, b) => a.percentage - b.percentage)[0].name;
+    let eventLargerCapacity = arr.sort((a, b) => b.capacity - a.capacity)[0].name
+    return [eventHighestAttendance, eventLowestAttendance, eventLargerCapacity]
 }
-*/
-function test(arr1, arr2, arr3) {
-    let arrAux = [];
-    arrAux.push(arr1, arr2, arr3)
-    return arrAux
-}
-
-function highestPercentage(arr) {
-    let highePercentage = 0;
-    let objReturn = {};
-
-    arr.forEach(arrEl => {
-        let currentPercentage = parseFloat(arrEl.percentage);
-        if (currentPercentage > highePercentage) {
-            highePercentage = currentPercentage;
-            objReturn = arrEl;
-        }
-    })
-    return objReturn
-}
-
-function lowestPercentage(arr, highPercentage) {
-    let lowePercentage = highPercentage.percentage;
-    let objReturn = {};
-
-    arr.forEach(arrEl => {
-        const currentPercentage = parseFloat(arrEl.percentage);
-        console.log(currentPercentage);
-        if (currentPercentage < lowePercentage) {
-            lowePercentage = currentPercentage;
-            objReturn = arrEl;
-        }
-    })
-
-    return objReturn
-}
-
-function eventLargerCapacity(arr) {
-    let highC = 0;
-    let objReturn = {};
-
-    arr.forEach(arrEl => {
-        const currentCapacity = arrEl.capacity;
-        if (currentCapacity > highC) {
-            highC = currentCapacity;
-            objReturn = arrEl;
-        }
-    })
-    return objReturn
-}
-
 
 export {
     drawCards,
@@ -358,13 +305,9 @@ export {
     drawCheckboxs,
     filterByName,
     getDataJSON,
-    eventsPercentage,
-    upcomingEventsStats,
-    highestPercentage,
-    lowestPercentage,
-    eventLargerCapacity,
-    test,
-    drawRowTable,
-    drawRowTable2
-    // upcomingEventsDraw
+    eventsAddPercentage,
+    eventsStats,
+    arrFirstTable,
+    drawRowFirstTable,
+    drawRowsTables
 };
