@@ -9,7 +9,6 @@ import {
 
 let dataJSON = await getDataJSON();
 let dataJSONEvents = dataJSON.events;
-
 // Captura del container para dibujar las cards
 let container = document.getElementById("containerCards");
 drawCards(dataJSONEvents, container);

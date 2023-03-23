@@ -141,20 +141,21 @@ function drawCheckboxs(arrData, container) {
     });
     container.appendChild(fragment);
 }
-///Funcion que dibuja la primer tabla
+// /Funcion que dibuja la primer tabla
 function drawRowFirstTable(arr, container) {
     let fragment = document.createDocumentFragment();
+    let tr = document.createElement("tr");
+    tr.classList = "table-secondary";
     arr.forEach(element => {
-        let cont = document.createElement("td");
-        cont.classList = "col-4 text-muted text-center";
-        cont.innerHTML = `${
-            element
-        }`;
-        fragment.appendChild(cont);
+        let td = document.createElement("td")
+        td.classList = "col-4 fw-bold text-center"
+        td.innerText = element
+        tr.appendChild(td)
     });
+    fragment.appendChild(tr);
     container.appendChild(fragment);
 }
-//Funcion que dibuja la tabla 2 y 3
+// Funcion que dibuja la tabla 2 y 3
 function drawRowsTables(arr, container) {
     let fragment = document.createDocumentFragment();
     arr.forEach(element => {
@@ -195,7 +196,7 @@ function filterByName(arrData, letterWord) {
 
 function pastEvents(arrData, date) {
     let arrAux = [];
-    arrAux = arrData.events.filter((dateEvent) => dateEvent.date<date);
+    arrAux = arrData.events.filter((dateEvent) => dateEvent.date < date);
     return arrAux;
 }
 
