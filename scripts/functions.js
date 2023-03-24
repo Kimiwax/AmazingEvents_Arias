@@ -148,7 +148,7 @@ function drawRowFirstTable(arr, container) {
     tr.classList = "table-secondary";
     arr.forEach(element => {
         let td = document.createElement("td")
-        td.classList = "col-4 fw-bold text-center"
+        td.classList = "col-4 text-center"
         td.innerText = element
         tr.appendChild(td)
     });
