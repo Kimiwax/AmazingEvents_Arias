@@ -64,6 +64,7 @@ function drawCardDetails(array, container) {
     [array].forEach((element) => {
         let card = document.createElement("div");
         card.classList.add("row");
+        card.style.minHeight = "30rem";
         card.innerHTML = `<div class="col-md-4">
         <img src="${
             element.image
@@ -71,13 +72,13 @@ function drawCardDetails(array, container) {
     </div>
     <div class="col-md-8 px-3">
         <div class="card-body px-3 container-text-details">
-            <h2 class="card-title text-center text-dark fw-bold">${
+            <h2 class="card-title text-center text-dark fw-bold pt-4 text-white">${
             element.name
         }</h2>
-            <p class="card-text"><small class="text-muted d-flex justify-content-end">${
+            <p class="card-text"><small class="d-flex justify-content-end text-light">${
             element.date
         }</small></p>
-            <p class="card-text card-text-p text-center mb-4">${
+            <p class="card-text card-text-p text-center mb-4 text-white">${
             element.description
         }</p>
             <div class="container">
@@ -148,7 +149,7 @@ function drawRowFirstTable(arr, container) {
     tr.classList = "table-secondary";
     arr.forEach(element => {
         let td = document.createElement("td")
-        td.classList = "col-4 fw-bold text-center"
+        td.classList = "col-4 text-center"
         td.innerText = element
         tr.appendChild(td)
     });

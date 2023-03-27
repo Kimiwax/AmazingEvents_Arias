@@ -295,10 +295,19 @@ label {
     margin: 0 0 2rem 0;
     overflow: hidden;
     position: relative;
+
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10.9px);
+    -webkit-backdrop-filter: blur(10.9px);
+    border: 1px solid rgba(255, 255, 255, 0.37);
 }
 
 .img-details {
     clip-path: polygon(0 0, 100% 0%, 93% 100%, 0% 100%);
+    border-radius: 10px 0 0 10px;
 }
 
 @media screen and (max-width:768px) {
@@ -365,7 +374,7 @@ a.nav-link.active:hover {
     background-color: rgba(255, 255, 255, 0.16);
     border: 1px solid rgba(255, 255, 255, 0.125);
     font-size: 1rem;
-
+    color: whitesmoke !important;
 }
 
 p {
@@ -373,7 +382,7 @@ p {
 }
 
 .text-success-emphasis {
-    color: #539165 !important;
+    color: #27aa4c !important;
     padding: 0.5rem;
     backdrop-filter: blur(3px) saturate(109%);
     background-color: rgba(255, 255, 255, 0.16);
@@ -383,4 +392,23 @@ p {
 
 .container-text-details {
     margin-bottom: 1rem;
+}
+
+#buttonBack {
+    background: #b7045b;
+    border: none;
+}
+
+#buttonBack>svg {
+    background: transparent;
+}
+
+#buttonBack:hover {
+    background: white;
+    border: none;
+    color: #b7045b;
+}
+
+#buttonBack:hover>svg {
+    color: #b7045b;
 }
