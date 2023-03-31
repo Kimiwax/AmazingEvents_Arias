@@ -1,35 +1,76 @@
-import {
-    drawCards,
-    filterByCategories,
-    drawCheckboxs,
-    filterCards,
-    filterByName,
-    getDataJSON
-} from "./functions.js";
+const {createApp} = Vue;
 
-let dataJSON = await getDataJSON();
-let dataJSONEvents = dataJSON.events;
-// Captura del container para dibujar las cards
-let container = document.getElementById("containerCards");
-drawCards(dataJSONEvents, container);
+const appIndex = createApp({
+    data() {
+        return {
+            jsonData: '/data/amazing.json',
+            events: [],
+            eventsToShow: [],
+            currentDate: "",
+            categories: [],
+            text: '',
+            selectedCategories: []
 
-let containerChks = document.getElementById("containerChecks")
-drawCheckboxs(filterByCategories(dataJSONEvents), containerChks)
-let checkBoxsOptions = document.querySelectorAll('input[class="form-check-input"]')
-let search = document.getElementById("searchContainer")
-let input = document.getElementById("inputSearchs")
-// Captura del div que contiene los input para escuchar su cambio
-
-let divChecks = document.querySelector(".form-check");
-divChecks.addEventListener("change", (e) => {
-    let firstFilter = filterByName(dataJSONEvents, input.value);
-    let secondFilter = filterCards(firstFilter, checkBoxsOptions);
-    drawCards(secondFilter, container);
-});
-
-// /Captura del inputSearch
-search.addEventListener("input", (e) => {
-    let firstFilter = filterByName(dataJSON.events, input.value);
-    let secondFilter = filterCards(firstFilter, checkBoxsOptions);
-    drawCards(secondFilter, container);
-})
+        }
+    },
+    created() {
+        this.getData()
+    },
+    methods: {
+        getData() {
+            fetch(this.jsonData).then(response => response.json()).then(dataJSON => {
+                this.currentDate = dataJSON.currentDate;
+                this.events = dataJSON.events;
+                this.eventsToShow = this.events;
+                this.filterByCategories(dataJSON.events)
+            }).catch(error => console.log(error.message))
+        },
+        filterByCategories(arrData) {
+            arrData.forEach((itemArr) => {
+                if (!this.categories.includes(itemArr.category)) {
+                    this.categories.push(itemArr.category);
+                }
+            });
+        },
+        whatMonthIs(month) {
+            switch (month) {
+                case "01":
+                    return "Jan";
+                case "02":
+                    return "Feb";
+                case "03":
+                    return "Mar";
+                case "04":
+                    return "Apr";
+                case "05":
+                    return "May";
+                case "06":
+                    return "Jun";
+                case "07":
+                    return "Jul";
+                case "08":
+                    return "Aug";
+                case "09":
+                    return "Sep";
+                case "10":
+                    return "Oct";
+                case "11":
+                    return "Nov";
+                case "12":
+                    return "Dec";
+                default:
+                    return "Nulls";
+            }
+        }
+    },
+    computed: {
+        filterTextAndCheckboxs() {
+            let firstFilter = this.events.filter(event => event.name.toLowerCase().includes(this.text.toLowerCase()))
+            if (!this.selectedCategories.length) {
+                this.eventsToShow = firstFilter
+            } else {
+                this.eventsToShow = firstFilter.filter(event => this.selectedCategories.includes(event.category))
+            }
+        }
+    }
+}).mount('#app')

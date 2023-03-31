@@ -90,6 +90,7 @@ h6 {
 
 .card {
     background: rgba(255, 255, 255, 0.57);
+    /* background: rgb(255 255 255 / 36%); */
     border-radius: 16px;
     border: none;
     transition: .5s;
@@ -150,6 +151,8 @@ label {
 
 .text-bg-myK {
     background-color: #533483;
+    clip-path: polygon(100% 0, 97% 50%, 100% 100%, 0% 100%, 3% 50%, 0% 0%);
+
 }
 
 .mainForm {
@@ -258,7 +261,7 @@ label {
 
 .date {
     background-color: #fff;
-    border-radius: 50%;
+    border-radius: 50% 1px;
     color: #700877;
     font-size: 18px;
     font-weight: 700;
@@ -339,24 +342,25 @@ h2.display-6 {
 
 
 .btn-outline-success {
-    --bs-btn-color: #372B5A;
-    --bs-btn-border-color: #372B5A;
+    --bs-btn-color: #533483;
+    --bs-btn-border-color: #533483;
     --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #372B5A;
-    --bs-btn-hover-border-color: #372B5A;
+    --bs-btn-hover-bg: #533483;
+    --bs-btn-hover-border-color: #533483;
     --bs-btn-focus-shadow-rgb: 25, 135, 84;
     --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #372B5A;
-    --bs-btn-active-border-color: #372B5A;
+    --bs-btn-active-bg: #533483;
+    --bs-btn-active-border-color: #533483;
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-    --bs-btn-disabled-color: #372B5A;
+    --bs-btn-disabled-color: #533483;
     --bs-btn-disabled-bg: transparent;
-    --bs-btn-disabled-border-color: #372B5A;
+    --bs-btn-disabled-border-color: #533483;
     --bs-gradient: none;
 
 }
 
 a.nav-link.active {
+    font-weight: 700;
     background-color: transparent !important;
     border: 3px solid transparent;
     border-image: linear-gradient(to right, #E94560, #3D2958) 1;
@@ -412,3 +416,8 @@ p {
 #buttonBack:hover>svg {
     color: #b7045b;
 }
+
+.btn{
+    transition: color .15s ease-in-out,background-color .3s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out !important;
+}
+ 

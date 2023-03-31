@@ -16,101 +16,138 @@
 </head>
 
 <body class="bodyPast">
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="/assets/img/logoAE.png" id="logoAE" alt="Logo Amazing Events">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon "></span>
+    <div id="app">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../index.html">
+                        <img src="/assets/img/logoAE.png" id="logoAE" alt="Logo Amazing Events">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon "></span>
+                    </button>
+                    <div class="collapse navbar-collapse d-lg-flex justify-content-end" id="navbarSupportedContent">
+                        <ul class="nav nav-pills nav-fill">
+                            <li class="nav-item item-no-select">
+                                <a class="nav-link text-white" href="../index.html">Home</a>
+                            </li>
+                            <li class="nav-item item-no-select">
+                                <a class="nav-link text-white" href="/pages/upcomingEvents.html"
+                                    aria-current="page">Upcoming Events</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white active" href="#" aria-current="page">Past Events</a>
+                            </li>
+                            <li class="nav-item item-no-select">
+                                <a class="nav-link text-white" href="/pages/contact.html">Contact</a>
+                            </li>
+                            <li class="nav-item item-no-select">
+                                <a class="nav-link text-white" href="/pages/stats.html">Stats</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div id="carouselHeader" class="carousel slide carousel-fade">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/assets/img/cinemaHeader.png" class="d-block w-100 header-img" alt="cinema Seats">
+                        <div class="carousel-caption d-md-block">
+                            <h1 class="display-1 h1">Past Events</h1>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/assets/img/museumHeader.jpeg" class="d-block w-100 header-img" alt="Museum">
+                        <div class="carousel-caption d-md-block">
+                            <h1 class="display-1 h1">Past Events</h1>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/assets/img/foodFairHeader.jpeg" class="d-block w-100 header-img" alt="Food Car">
+                        <div class="carousel-caption d-md-block">
+                            <h1 class="display-1 h1">Past Events</h1>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselHeader"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
                 </button>
-                <div class="collapse navbar-collapse d-lg-flex justify-content-end" id="navbarSupportedContent">
-                    <ul class="nav nav-pills nav-fill">
-                        <li class="nav-item item-no-select">
-                            <a class="nav-link text-white" href="../index.html">Home</a>
-                        </li>
-                        <li class="nav-item item-no-select">
-                            <a class="nav-link text-white" href="/pages/upcomingEvents.html"
-                                aria-current="page">Upcoming Events</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white active" href="#" aria-current="page">Past Events</a>
-                        </li>
-                        <li class="nav-item item-no-select">
-                            <a class="nav-link text-white" href="/pages/contact.html">Contact</a>
-                        </li>
-                        <li class="nav-item item-no-select">
-                            <a class="nav-link text-white" href="/pages/stats.html">Stats</a>
-                        </li>
-                    </ul>
-                </div>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselHeader"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-        </nav>
-        <div id="carouselHeader" class="carousel slide carousel-fade">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="/assets/img/cinemaHeader.png" class="d-block w-100 header-img" alt="cinema Seats">
-                    <div class="carousel-caption d-md-block">
-                        <h1 class="display-1 h1">Past Events</h1>
+        </header>
+        <main class="container-fluid d-flex flex-column align-items-center pb-5" style="backdrop-filter: blur(8px);">
+            <section>
+                <h5 class="h5 mt-4">Categories:</h5>
+                <div class=" container-fluid">
+                    <div class="form-check d-flex flex-xl-row flex-column justify-content-between flex-wrap align-items-center containerForm pe-4"
+                        id="containerChecks">
+                        <div class="input-group input-search mb-3 mb-xl-0" id="searchContainer">
+                            <input v-model="text" type="search" name="search" id="inputSearchs"
+                                class="form-control w-50 rounded-start-pill" placeholder="Enter your search"
+                                aria-label="inputSearch" aria-describedby="inputSearch">
+                            {{filterTextAndCheckboxs}}
+                            <button class="btn input-group-text" id="inputSearch" type="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-search" viewBox="0 0 16 16">
+                                    <path
+                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div v-for="chkCategory of categories" class="form-check form-check-inline m-3">
+                            <input v-model="selectedCategories" class="form-check-input" type="checkbox"
+                                :id="chkCategory" :value="chkCategory"><label class="form-check-label"
+                                :for="chkCategory">{{chkCategory}}</label>
+                        </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="/assets/img/museumHeader.jpeg" class="d-block w-100 header-img" alt="Museum">
-                    <div class="carousel-caption d-md-block">
-                        <h1 class="display-1 h1">Past Events</h1>
+            </section>
+            <section class="mainCards mb-5">
+                <h2 class="display-6 h2 text-center m-5 fw-bold">Events</h2>
+                <div v-if="!eventsToShow.length" class="div-es d-flex justify-content-center">
+                    <h3 class="display-6 h2 text-center w-100 text-secondary m-5 fw-bold text-not">The searched element
+                        does not exist</h3>
+                </div>
+                <div class="container-fluid">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-3 justify-content-center gap-4"
+                        id="containerPastCards">
+                        <div v-for="event of eventsToShow" class="col" style="min-width:20rem; max-height: 40rem;">
+                            <div class="card shadow-sm h-100">
+                                <div class="date">
+                                    <span class="day">{{event.date.slice(8,10)}}</span>
+                                    <span class="month">{{whatMonthIs(event.date.slice(5,7))}}</span>
+                                    <span class="year">{{event.date.slice(0,4)}}</span>
+                                </div>
+                                <img :src="event.image" class="card-img-top imgCards imgPast"
+                                    alt="People in the cinema" />
+                                <div class="card-body d-flex justify-content-between flex-column">
+                                    <h5 class="card-title text-center fw-bold text-bg-myK">{{event.name}}</h5>
+                                    <p class="card-text text-center">{{event.description}}</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a :href="'/pages/details.html?id=' + event._id"
+                                                class="btn btn-sm btn-outline-success btn-circle d-flex align-items-center">More
+                                                Info</a>
+                                        </div>
+                                        <small class="text-muted fw-bold">Price: ${{event.price}}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="/assets/img/foodFairHeader.jpeg" class="d-block w-100 header-img" alt="Food Car">
-                    <div class="carousel-caption d-md-block">
-                        <h1 class="display-1 h1">Past Events</h1>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselHeader" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselHeader" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </header>
-    <main class="container-fluid d-flex flex-column align-items-center pb-5">
-        <section>
-            <h5 class="h5 mt-4">Categories:</h5>
-            <div class=" container-fluid">
-                <div class="form-check d-flex flex-xl-row flex-column justify-content-between flex-wrap align-items-center containerForm pe-4"
-                    id="containerChecks">
-                    <div class="input-group input-search mb-3 mb-xl-0" id="searchContainer">
-                        <input type="search" name="search" id="inputSearchs"
-                            class="form-control w-50 rounded-start-pill" placeholder="Enter your search"
-                            aria-label="inputSearch" aria-describedby="inputSearch">
-                        <button class="btn input-group-text" id="inputSearch" type="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-search" viewBox="0 0 16 16">
-                                <path
-                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z">
-                                </path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="mainCards mb-5">
-            <h2 class="display-6 h2 text-center m-5 fw-bold">Events</h2>
-            <div class="container-fluid">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-3 justify-content-center gap-4"
-                    id="containerPastCards">
-                </div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
+    </div>
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
         <div class="col-md-4 d-flex align-items-center mx-4">
             <ul class="list-unstyled d-flex">
@@ -139,8 +176,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="module" src="../scripts/pastEvents.js"></script>
-    <script type="module" src="../scripts/amazing.js"></script>
 </body>
 
 </html>

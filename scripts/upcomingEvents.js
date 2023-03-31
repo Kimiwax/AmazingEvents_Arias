@@ -1,37 +1,77 @@
-import {
-    drawCards,
-    filterByCategories,
-    drawCheckboxs,
-    filterCards,
-    filterByName,
-    upcomingEvents,
-    getDataJSON
-} from "./functions.js";
-let dataJSON = await getDataJSON();
+const {createApp} = Vue;
 
-// Captura del container para dibujar las cards
-let container = document.getElementById("containerUpcomingCards");
-let cardsUpcomingEvents = upcomingEvents(dataJSON, dataJSON.currentDate)
-drawCards(cardsUpcomingEvents, container)
-
-let containerChks = document.getElementById("containerChecks")
-drawCheckboxs(filterByCategories(dataJSON.events), containerChks)
-
-let checkBoxsOptions = document.querySelectorAll('input[class="form-check-input"]')
-let input = document.getElementById("inputSearchs")
-let searchContainer = document.getElementById("searchContainer")
-let divChecks = document.querySelector(".form-check"); // Captura del div que contiene los input para escuchar su cambio
-
-divChecks.addEventListener("change", (e) => {
-    let firstFilter = filterByName(cardsUpcomingEvents, input.value);
-    let secondFilter = filterCards(firstFilter, checkBoxsOptions);
-    drawCards(secondFilter, container);
-
-});
-
-// /Captura del inputSearch
-searchContainer.addEventListener("input", (e) => {
-    let firstFilter = filterByName(cardsUpcomingEvents, input.value);
-    let secondFilter = filterCards(firstFilter, checkBoxsOptions);
-    drawCards(secondFilter, container);
-})
+const appUpcomingEvents = createApp({
+    data() {
+        return {
+            jsonData: '/data/amazing.json',
+            events: [],
+            upcomingEvents: [],
+            eventsToShow: [],
+            currentDate: "",
+            categories: [],
+            text: '',
+            selectedCategories: []
+        }
+    },
+    created() {
+        this.getData()
+    },
+    methods: {
+        getData() {
+            fetch(this.jsonData).then(response => response.json()).then(dataJSON => {
+                this.currentDate = dataJSON.currentDate;
+                this.events = dataJSON.events;
+                this.upcomingEvents = this.events.filter((dateEvent) => dateEvent.date > this.currentDate);
+                this.eventsToShow = this.upcomingEvents;
+                this.filterByCategories(this.upcomingEvents)
+            }).catch(error => console.log(error.message))
+        },
+        filterByCategories(arrData) {
+            arrData.forEach((itemArr) => {
+                if (!this.categories.includes(itemArr.category)) {
+                    this.categories.push(itemArr.category);
+                }
+            });
+        },
+        whatMonthIs(month) {
+            switch (month) {
+                case "01":
+                    return "Jan";
+                case "02":
+                    return "Feb";
+                case "03":
+                    return "Mar";
+                case "04":
+                    return "Apr";
+                case "05":
+                    return "May";
+                case "06":
+                    return "Jun";
+                case "07":
+                    return "Jul";
+                case "08":
+                    return "Aug";
+                case "09":
+                    return "Sep";
+                case "10":
+                    return "Oct";
+                case "11":
+                    return "Nov";
+                case "12":
+                    return "Dec";
+                default:
+                    return "Nulls";
+            }
+        }
+    },
+    computed: {
+        filterTextAndCheckboxs() {
+            let firstFilter = this.upcomingEvents.filter(event => event.name.toLowerCase().includes(this.text.toLowerCase()))
+            if (!this.selectedCategories.length) {
+                this.eventsToShow = firstFilter
+            } else {
+                this.eventsToShow = firstFilter.filter(event => this.selectedCategories.includes(event.category))
+            }
+        }
+    }
+}).mount('#app')
