@@ -82,7 +82,14 @@ h6 {
 
 .imgPast {
     filter: grayscale();
+    transition: all 0.4s;
 }
+
+.imgPast:hover {
+    filter: grayscale(0%);
+}
+
+
 
 .active {
     background-color: #E94560 !important;
@@ -373,12 +380,15 @@ a.nav-link.active:hover {
 }
 
 .text-body {
-    padding: 0.5rem;
+    padding: 0.7rem;
     backdrop-filter: blur(3px) saturate(109%);
     background-color: rgba(255, 255, 255, 0.16);
     border: 1px solid rgba(255, 255, 255, 0.125);
     font-size: 1rem;
     color: whitesmoke !important;
+    backdrop-filter: blur(.1rem);
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 2rem 2rem;
 }
 
 p {
@@ -389,9 +399,11 @@ p {
     color: #27aa4c !important;
     padding: 0.5rem;
     backdrop-filter: blur(3px) saturate(109%);
-    background-color: rgba(255, 255, 255, 0.16);
     border: 1px solid rgba(255, 255, 255, 0.125);
     font-size: 1.5rem;
+    backdrop-filter: blur(0.1rem);
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 2rem 2rem;
 }
 
 .container-text-details {
@@ -417,7 +429,10 @@ p {
     color: #b7045b;
 }
 
-.btn{
-    transition: color .15s ease-in-out,background-color .3s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out !important;
+.btn {
+    transition: color .15s ease-in-out, background-color .3s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !important;
 }
- 
+
+.p-details{
+    margin-top: 0.6rem;
+}
